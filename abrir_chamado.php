@@ -65,7 +65,9 @@
 
                     <div class="row mt-5">
                       <div class="col-6">
-                        <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
+                        <a href="http://http://localhost/_App-Help-Desk/home.php">
+                          <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
+                        </a>
                       </div>
 
                       <div class="col-6">
