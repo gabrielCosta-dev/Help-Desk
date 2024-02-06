@@ -1,7 +1,6 @@
 <?php 
 
-    /* $_POST['email'];
-    $_POST['senha']; */
+    session_start();
 
     //Variável autenticação
     $user_autenticado = false;
@@ -12,11 +11,6 @@
         ['email'=>'user@teste.com.br', 'senha'=>'654321'],
     );
 
-    /* echo '<pre>';
-    print_r($usuarios_app);
-    print_r($_POST);
-    echo '</pre>'; */
-
     foreach ($usuarios_app as $user) {
         if ($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']) {
             $user_autenticado = true;
@@ -25,16 +19,12 @@
 
     if ($user_autenticado) {
         echo 'Usuário autenticado';
+        $_SESSION['autenticado'] = 'SIM';
     } else {
+        $_SESSION['autenticado'] = 'NÃO';
         header('Location:http://localhost/_App-Help-Desk/index.php?login=erro');
+        
     }
 
-    //GET e POST
-    #$a=[/* $_GET['email'];
-        /* $_GET['senha'];
-        print_r($_GET); */
-        /* $_POST['email'];
-        $_POST['senha']; 
-        print_r($_POST);] */
 
 ?>

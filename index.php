@@ -42,8 +42,15 @@
 
                 <?php if (isset($_GET['login']) && $_GET['login'] == 'erro') { ?>
 
-                    <div class="text-light bg-danger mb-1 mt-0 p-1">
+                    <div class="text-danger p-1">
                       Usuário ou senha inválido(s)
+                    </div>
+
+                <?php } ?>    
+
+                <?php if (isset($_GET['login']) && $_GET['login'] == 'erro2') { ?>    
+                    <div class="text-danger p-1">
+                      Faça login antes de acessar as páginas protegidas!!!
                     </div>
 
                 <?php } ?>
