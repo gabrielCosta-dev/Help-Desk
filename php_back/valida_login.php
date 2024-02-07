@@ -20,10 +20,6 @@
     if ($user_autenticado) {
         $_SESSION['autenticado'] = 'SIM';
 
-        //Teste
-        $_SESSION['x'] = 'Um valor';
-        $_SESSION['y'] = 'Outro valor';
-
         header('Location:http://localhost/_App-Help-Desk/home.php');
     } else {
         $_SESSION['autenticado'] = 'NÃO';
