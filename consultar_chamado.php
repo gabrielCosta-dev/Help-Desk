@@ -1,5 +1,19 @@
+<?php require_once "validador_acesso.php" ?>
+
 <?php 
-  require_once "validador_acesso.php"
+  //Lista de chamados
+  $chamados = array();
+
+  $arquivo = fopen('php_back/arquivo.hd', 'r');
+
+  while (!feof($arquivo)) {
+    //Linhas
+    $registro = fgets($arquivo);
+    $chamados[] = $registro;
+  }
+
+  fclose($arquivo);
+  $chamados = array_filter($chamados);
 ?>
 
 <html>
@@ -39,24 +53,26 @@
             </div>
             
             <div class="card-body">
+
+              <?php foreach ($chamados as $valor) {
+              ?>
               
+              <?php 
+                $chamado = explode('#', $valor);
+                /* if (count($chamado) < 3) {
+                  continue;
+                } */
+              ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+                  <h5 class="card-title"><?= $chamado[0] ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado[1] ?></h6>
+                  <p class="card-text"><?= $chamado[2] ?></p>
 
                 </div>
               </div>
 
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
+              <?php } ?>
 
               <div class="row mt-5">
                 <div class="col-6">
