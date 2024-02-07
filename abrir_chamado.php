@@ -27,6 +27,8 @@
         <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
+
+      <?php include_once "incluir_saida.php" ?>
     </nav>
 
     <div class="container">    
@@ -65,9 +67,7 @@
 
                     <div class="row mt-5">
                       <div class="col-6">
-                        <a href="http://http://localhost/_App-Help-Desk/home.php">
-                          <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
-                        </a>
+                        <a class="btn btn-lg btn-warning btn-block" href="http://localhost/_App-Help-Desk/home.php">Voltar</a>
                       </div>
 
                       <div class="col-6">

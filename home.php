@@ -25,6 +25,8 @@
         <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
+
+      <?php include_once "incluir_saida.php" ?>
     </nav>
 
     <div class="container">    
@@ -38,12 +40,12 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="http://localhost/_App-Help-Desk/abrir_chamado.php" target="_blank" rel="noopener noreferrer">
+                  <a href="http://localhost/_App-Help-Desk/abrir_chamado.php" rel="noopener noreferrer">
                     <img src="img/formulario_abrir_chamado.png" width="70" height="70">
                   </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="http://localhost/_App-Help-Desk/consultar_chamado.php" target="_blank" rel="noopener noreferrer">
+                  <a href="http://localhost/_App-Help-Desk/consultar_chamado.php" rel="noopener noreferrer">
                     <img src="img/formulario_consultar_chamado.png" width="70" height="70">
                   </a>  
                 </div>
