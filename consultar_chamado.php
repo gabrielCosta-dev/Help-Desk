@@ -1,6 +1,7 @@
 <?php require_once "validador_acesso.php" ?>
 
 <?php 
+
   //Lista de chamados
   $chamados = array();
 
@@ -8,9 +9,25 @@
 
   while (!feof($arquivo)) {
     //Linhas
-    $registro = fgets($arquivo);
-    $chamados[] = $registro;
-  }
+    $valor = fgets($arquivo);
+
+    // Divide o registro em partes separadas por '#'
+    $chamado = explode('#', $valor);
+
+    // Verifica se há dados suficientes no registro
+    if (count($chamado) >= 4) {
+      // Verifica se o perfil do usuário é de usuário comum (perfil_id = 2)
+      if ($_SESSION['id_perfil'] == 2) {
+          // Verifica se o chamado foi criado pelo usuário atual
+          if ($_SESSION['id'] != $chamado[0]) {
+              // Se não foi criado pelo usuário atual, continue para o próximo registro
+              continue;
+          }
+      }
+      // Adiciona o chamado ao array de chamados
+      $chamados[] = $valor;
+    }
+   }
 
   fclose($arquivo);
   $chamados = array_filter($chamados);
@@ -55,19 +72,17 @@
             <div class="card-body">
 
               <?php foreach ($chamados as $valor) {
-              ?>
-              
-              <?php 
                 $chamado = explode('#', $valor);
+
                 /* if (count($chamado) < 3) {
                   continue;
                 } */
               ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $chamado[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado[1] ?></h6>
-                  <p class="card-text"><?= $chamado[2] ?></p>
+                  <h5 class="card-title"><?= $chamado[1] ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?= $chamado[2] ?></h6>
+                  <p class="card-text"><?= $chamado[3] ?></p>
 
                 </div>
               </div>

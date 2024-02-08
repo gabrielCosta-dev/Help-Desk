@@ -1,7 +1,5 @@
 <?php 
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    session_start();
 
     //Texto
     $del = '#';
@@ -11,8 +9,8 @@
         $_POST[$chave] = str_replace($del, $delTroca, $valor);
     }
 
-    $text = implode($del, $_POST);
-    $texto = $text . PHP_EOL;
+    $texto = implode($del, $_POST);
+    $texto = $_SESSION['id'] . '#' . $texto . PHP_EOL;
 
     //Arquivo
     $arquivo = fopen('arquivo.hd', 'a');
